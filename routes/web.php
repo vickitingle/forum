@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'IndexController@index');
+Auth::routes();
+
+Route::get('/admin', 'Admin\AdminController@index')->name('admin');
+Route::get('/admin/forums', 'Admin\ForumsController@index')->name('admin_forums');
+Route::get('/admin/forums/create', 'Admin\ForumsController@create')->name('admin_forums_create');
+Route::get('/admin/forums/save', 'Admin\ForumsController@save')->name('admin_forums_save');
