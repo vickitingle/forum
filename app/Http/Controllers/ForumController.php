@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Library\Forums;
 
 /**
- * Main forums index
+ * Forum Listing
  * @author Vicki Tingle <vicki.tingle@gmail.com>
  */
-class IndexController extends Controller
+class ForumController extends Controller
 {
     protected $forums;
     public function __construct(
@@ -18,11 +19,12 @@ class IndexController extends Controller
         $this->forums = $forums;
     }
 
-    public function index()
+    public function index(Request $request, $id)
     {
-        $forums = $this->forums->getAllForums();
-        return view('index', [
-            'forums' => $forums
+        $forum = $this->forums->getById($id);
+        return view('forum/list', [
+            'forum' => $forum,
+            'posts' => null
         ]);
     }
 }

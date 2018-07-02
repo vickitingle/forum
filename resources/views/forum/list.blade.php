@@ -13,17 +13,11 @@
     @section('content')
     <div class="container">
         <div class="row justify-content-center">
+            <h2>{{ $forum->name }}</h2>
             <div class="main container">
-                @foreach ($forums as $forum)
-                    <div class="forum row">
-                        <div class="col-sm">
-                            <a href="forum/{{ $forum->id }}"><h2>{{ $forum->name }}</h2></a>
-                        </div>
-                        <div class="col-sm">
-                            Last posted in: {{ $forum->updated_at }}
-                        </div>
-                    </div>
-                @endforeach
+                <div class="col-sm-4">
+                    <a class="btn btn-primary" href="/post/create/{{ $forum->id }}" role="button">New Post</a>
+                </div>
             </div>
         </div>
     @endsection

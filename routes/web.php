@@ -12,6 +12,10 @@
 */
 
 Route::get('/', 'IndexController@index');
+Route::get('/forum/{id}', 'ForumController@index');
+Route::get('/post/create/{forumId}', 'PostController@create');
+
+
 Auth::routes();
 
 Route::get('/admin', 'Admin\AdminController@index')->name('admin');

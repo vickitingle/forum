@@ -3,26 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Library\Forums;
 
 /**
- * Main forums index
+ * Posts
  * @author Vicki Tingle <vicki.tingle@gmail.com>
  */
-class IndexController extends Controller
+class PostController extends Controller
 {
-    protected $forums;
+    protected $posts;
     public function __construct(
         Forums $forums
     ) {
         $this->forums = $forums;
     }
 
-    public function index()
+    public function create(Request $request, $forumId)
     {
-        $forums = $this->forums->getAllForums();
-        return view('index', [
-            'forums' => $forums
+        return view('forum/posts/new', [
+            'forumId' => $forumId
         ]);
     }
 }

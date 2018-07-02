@@ -22,8 +22,10 @@ class CreatePostsTable extends Migration
             $table->string('content', 500);
             $table->string('posted_by', 100);
             $table->integer('author_id');
+            $table->unsignedInteger('forum_id');
             $table->dateTime('date_posted');
             $table->timestamps();
+            $table->foreign('forum_id')->references('id')->on('forums');
         });
     }
 

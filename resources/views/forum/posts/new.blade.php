@@ -13,17 +13,16 @@
     @section('content')
     <div class="container">
         <div class="row justify-content-center">
+            <h2>New Post</h2>
             <div class="main container">
-                @foreach ($forums as $forum)
-                    <div class="forum row">
-                        <div class="col-sm">
-                            <a href="forum/{{ $forum->id }}"><h2>{{ $forum->name }}</h2></a>
-                        </div>
-                        <div class="col-sm">
-                            Last posted in: {{ $forum->updated_at }}
-                        </div>
+                <form>
+                    <div class="form-group">
+                        <label for="content">Post:</label>
+                        <textarea class="form-control" id="content"></textarea>
                     </div>
-                @endforeach
+                    
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
         </div>
     @endsection
